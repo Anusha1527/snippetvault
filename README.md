@@ -1,36 +1,260 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 SnippetVault
 
-## Getting Started
+![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)
+![Supabase](https://img.shields.io/badge/Supabase-Backend-3ECF8E?logo=supabase&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-UI-38BDF8?logo=tailwindcss&logoColor=white)
+![Highlight.js](https://img.shields.io/badge/Highlight.js-Syntax%20Highlighting-yellow)
+![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?logo=vercel)
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# 🌐 Live Application
+
+```
+https://snippetvault-lime.vercel.app/
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# 📌 Important Routes (How to Test the App)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Since the project uses **Next.js App Router**, you must access pages using the following routes.
 
-## Learn More
+### Sign Up Page
 
-To learn more about Next.js, take a look at the following resources:
+```
+https://snippetvault-lime.vercel.app/signup
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Create a new account here.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+### Login Page
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+https://snippetvault-lime.vercel.app/login
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Login using your registered account.
+
+---
+
+### Dashboard
+
+```
+https://snippetvault-lime.vercel.app/dashboard
+```
+
+Here you can:
+
+- Create snippets
+- Add tags
+- Copy code
+- Share snippets
+- Delete snippets
+
+---
+
+### Shared Snippet Page
+
+When you click **Share**, a link is generated like:
+
+```
+https://snippetvault-lime.vercel.app/share/{share_id}
+```
+
+Example:
+
+```
+https://snippetvault-lime.vercel.app/share/abc123
+```
+
+Anyone with this link can view the snippet.
+
+---
+
+# ✨ Features
+
+### 🔐 Authentication
+- Secure login and signup
+- Managed with **Supabase Auth**
+
+### 📝 Create Snippets
+- Add snippet title
+- Select programming language
+- Paste code
+- Add tags
+
+### 🎨 Syntax Highlighting
+- Highlighted code using **Highlight.js**
+
+### 📋 Copy Code
+- Copy snippet code instantly
+
+### 🔗 Share Snippets
+- Generate public shareable link
+- View snippets without login
+
+### 🗑 Delete Snippets
+- Remove snippets from dashboard
+
+### 🏷 Tag Support
+- Add tags to organize snippets
+
+---
+
+# 🛠 Tech Stack
+
+| Technology | Purpose |
+|------------|--------|
+Next.js | Frontend Framework |
+Supabase | Backend + Database |
+TailwindCSS | Styling |
+Highlight.js | Syntax highlighting |
+Vercel | Deployment |
+
+---
+
+# 📂 Project Structure
+
+```
+snippetvault
+│
+├── app
+│   ├── dashboard
+│   │   └── page.tsx
+│   │
+│   ├── login
+│   │   └── page.tsx
+│   │
+│   ├── signup
+│   │   └── page.tsx
+│   │
+│   └── share
+│       └── [id]
+│           └── page.tsx
+│
+├── components
+│   ├── CreateSnippetForm.tsx
+│   ├── Navbar.tsx
+│   └── SnippetList.tsx
+│
+├── lib
+│   └── supabase.ts
+│
+└── package.json
+```
+
+---
+
+# 🔄 Application Flow (Mermaid Flowchart)
+
+```mermaid
+flowchart TD
+
+User[User Opens App]
+
+User --> Signup[/signup Page/]
+Signup --> CreateAccount[Create Account]
+
+CreateAccount --> Login[/login Page/]
+Login --> Dashboard[/dashboard Page/]
+
+Dashboard --> CreateSnippet[Create Snippet]
+CreateSnippet --> SaveDB[Save in Supabase]
+
+SaveDB --> DisplaySnippet[Display Snippet Card]
+
+DisplaySnippet --> CopyCode[Copy Code]
+DisplaySnippet --> DeleteSnippet[Delete Snippet]
+
+DisplaySnippet --> ShareSnippet[Generate Share Link]
+
+ShareSnippet --> PublicLink[/share/{id}/]
+
+PublicLink --> ViewSnippet[Anyone Can View Snippet]
+
+ViewSnippet --> End[End]
+```
+
+---
+
+# 🚀 Running the Project Locally
+
+### Clone Repository
+
+```
+git clone https://github.com/Anusha1527/snippetvault.git
+cd snippetvault
+```
+
+---
+
+### Install Dependencies
+
+```
+npm install
+```
+
+---
+
+### Create Environment Variables
+
+Create `.env.local`
+
+```
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
+
+You can find these in:
+
+```
+Supabase → Project Settings → API
+```
+
+---
+
+### Start Development Server
+
+```
+npm run dev
+```
+
+Open:
+
+```
+http://localhost:3000
+```
+
+---
+
+# 🌍 Deployment
+
+This project is deployed on **Vercel**
+
+Live URL:
+
+```
+https://snippetvault-lime.vercel.app/
+```
+
+Deployment steps:
+
+1. Push project to GitHub
+2. Import repository in Vercel
+3. Add environment variables
+4. Deploy
+
+---
+
+# 💡 Future Improvements
+
+- 🔎 Search snippets
+- ⭐ Favorite snippets
+- 📁 Folder organization
+- 🌐 Public snippet gallery
+- 🧑‍🤝‍🧑 Team collaboration
+
+---
