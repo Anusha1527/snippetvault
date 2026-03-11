@@ -153,31 +153,32 @@ snippetvault
 ```mermaid
 flowchart TD
 
-User[User Opens App]
+User[User Opens Application]
 
-User --> Signup[/signup Page/]
+User --> Signup[Signup Page]
 Signup --> CreateAccount[Create Account]
 
-CreateAccount --> Login[/login Page/]
-Login --> Dashboard[/dashboard Page/]
+CreateAccount --> Login[Login Page]
+Login --> Dashboard[Dashboard]
 
-Dashboard --> CreateSnippet[Create Snippet]
-CreateSnippet --> SaveDB[Save in Supabase]
+Dashboard --> CreateSnippet[Create New Snippet]
+CreateSnippet --> SaveSnippet[Save Snippet to Supabase]
 
-SaveDB --> DisplaySnippet[Display Snippet Card]
+SaveSnippet --> DisplaySnippet[Snippet Appears in Dashboard]
 
-DisplaySnippet --> CopyCode[Copy Code]
-DisplaySnippet --> DeleteSnippet[Delete Snippet]
+DisplaySnippet --> CopyCode[Copy Code Button]
+DisplaySnippet --> DeleteSnippet[Delete Snippet Button]
 
-DisplaySnippet --> ShareSnippet[Generate Share Link]
+DisplaySnippet --> ShareSnippet[Click Share Button]
 
-ShareSnippet --> PublicLink[/share/{id}/]
+ShareSnippet --> GenerateLink[Generate Public Share Link]
 
-PublicLink --> ViewSnippet[Anyone Can View Snippet]
+GenerateLink --> PublicPage[Public Snippet Page]
+
+PublicPage --> ViewSnippet[Anyone Can View the Snippet]
 
 ViewSnippet --> End[End]
 ```
-
 ---
 
 # 🚀 Running the Project Locally
