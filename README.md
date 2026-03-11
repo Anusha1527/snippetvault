@@ -10,9 +10,7 @@
 
 # 🌐 Live Application
 
-```
 https://snippetvault-lime.vercel.app/
-```
 
 ---
 
@@ -257,5 +255,11 @@ Deployment steps:
 - 📁 Folder organization
 - 🌐 Public snippet gallery
 - 🧑‍🤝‍🧑 Team collaboration
+
+---
+
+# Video Demonstration
+
+https://www.loom.com/share/1e74473e103649acbb22b96fcd632591
 
 ---
